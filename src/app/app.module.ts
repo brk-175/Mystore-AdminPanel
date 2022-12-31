@@ -14,6 +14,8 @@ import { BrandListComponent } from './brand/brand-list/brand-list.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

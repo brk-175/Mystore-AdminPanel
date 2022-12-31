@@ -10,9 +10,10 @@ import { ProductAddComponent } from './product/product-add/product-add.component
 import { CategoryAddComponent } from './category/category-add/category-add.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { BrandAddComponent } from './brand/brand-add/brand-add.component';
-import { BrandLisetComponent } from './brand/brand-liset/brand-liset.component';
 import { BrandListComponent } from './brand/brand-list/brand-list.component';
 import { UserListComponent } from './user/user-list/user-list.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,16 +24,17 @@ import { UserListComponent } from './user/user-list/user-list.component';
     CategoryAddComponent,
     CategoryListComponent,
     BrandAddComponent,
-    BrandLisetComponent,
     BrandListComponent,
-    UserListComponent
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

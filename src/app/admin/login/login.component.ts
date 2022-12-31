@@ -23,16 +23,17 @@ export class LoginComponent {
     else if (this.password == '')
       this.toastr.warning('Please enter password !');
     else {
-      const observable = this.service.onLogin(this.email, this.password);
-      observable.subscribe((response: any) => {
-        if (response.status == 'success') {
-          this.toastr.success('Welcome !');
-          const user = response.data;
-          sessionStorage['name'] = user.firstName + ' ' + user.lastName;
-          sessionStorage['token'] = user.token;
-          this.router.navigate(['/product-list']);
-        } else this.toastr.error(response.error);
-      });
+      this.service
+        .onLogin(this.email, this.password)
+        .subscribe((response: any) => {
+          if (response.status == 'success') {
+            this.toastr.success('Welcome !');
+            const user = response.data;
+            sessionStorage['name'] = user.firstName + ' ' + user.lastName;
+            sessionStorage['token'] = user.token;
+            this.router.navigate(['/product-list']);
+          } else this.toastr.error(response.error);
+        });
     }
   }
 }

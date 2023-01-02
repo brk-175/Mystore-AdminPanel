@@ -1,13 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AdminService {
+export class AdminService implements CanActivate {
   url: string = 'http://localhost:7000/admin';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   onLogin(email: string, password: string) {
     const body = {
@@ -15,5 +26,17 @@ export class AdminService {
       password: password,
     };
     return this.http.post(this.url + '/login', body);
+  }
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    if (!sessionStorage['token']) {
+      this.router.navigate(['/login']);
+      this.toastr.warning('Please login first');
+      return false;
+    }
+    return true;
   }
 }

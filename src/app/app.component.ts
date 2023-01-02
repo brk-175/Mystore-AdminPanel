@@ -12,6 +12,8 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   onLogout() {
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 }

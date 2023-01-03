@@ -17,4 +17,24 @@ export class BrandService {
   getAllBrands() {
     return this.http.get(this.url, this.httpOptions);
   }
+
+  addBrand(title: string, description: string) {
+    const body = {
+      title: title,
+      description: description,
+    };
+    return this.http.post(this.url, body, this.httpOptions);
+  }
+
+  deleteBrand(id: number) {
+    return this.http.delete(this.url + '/' + id, this.httpOptions);
+  }
+
+  editBrand(id: number, title: string, description: string) {
+    const body = {
+      title: title,
+      description: description,
+    };
+    return this.http.put(this.url +"/"+ id, body, this.httpOptions);
+  }
 }

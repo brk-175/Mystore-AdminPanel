@@ -17,4 +17,12 @@ export class CategoryService {
   getAllCategories() {
     return this.http.get(this.url, this.httpOptions);
   }
+
+  addCategory(title: string, description: string) {
+    const body = {
+      title: title,
+      description: description,
+    };
+    return this.http.post(this.url, body, this.httpOptions);
+  }
 }

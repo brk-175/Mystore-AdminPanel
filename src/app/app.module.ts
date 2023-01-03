@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrandAddComponent,
     BrandListComponent,
     UserListComponent,
+    CategoryEditComponent,
   ],
   imports: [
     BrowserModule,

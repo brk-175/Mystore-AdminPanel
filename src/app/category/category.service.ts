@@ -25,4 +25,16 @@ export class CategoryService {
     };
     return this.http.post(this.url, body, this.httpOptions);
   }
+
+  deleteCategory(id: number) {
+    return this.http.delete(`${this.url}/${id}`, this.httpOptions);
+  }
+
+  editCategory(id: number, title: string, description: string) {
+    const body = {
+      title: title,
+      description: description,
+    };
+    return this.http.put(this.url +"/"+ id, body, this.httpOptions);
+  }
 }

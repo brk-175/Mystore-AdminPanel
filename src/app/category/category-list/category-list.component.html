@@ -14,8 +14,8 @@
         <td>{{ category["title"] }}</td>
         <td>{{ category["description"] }}</td>
         <td>
-          <button class="btn btn-sm btn-warning">Edit</button>
-          <button class="btn btn-sm btn-danger delete">Delete</button>
+          <button (click)="onEdit(category)" class="btn btn-sm btn-warning">Edit</button>
+          <button (click)="onDelete(category['id'])" class="btn btn-sm btn-danger delete">Delete</button>
         </td>
       </tr>
     </tbody>

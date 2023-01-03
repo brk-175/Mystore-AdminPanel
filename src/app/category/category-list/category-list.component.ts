@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryAddComponent } from '../category-add/category-add.component';
+import { CategoryEditComponent } from '../category-edit/category-edit.component';
 import { CategoryService } from '../category.service';
 
 @Component({
@@ -32,6 +33,26 @@ export class CategoryListComponent {
 
   onAdd() {
     const modalRef = this.modalService.open(CategoryAddComponent);
+    modalRef.result.finally(() => {
+      this.getAllCategories();
+    });
+  }
+
+  onDelete(id: number) {
+    this.service.deleteCategory(id).subscribe((response: any) => {
+      if (response.status == 'success') {
+        this.getAllCategories();
+        this.toastr.success('Category deleted successfully !');
+      } else this.toastr.error('Something went wrong !');
+    });
+  }
+
+  onEdit(category: any) {
+    const modalRef = this.modalService.open(CategoryEditComponent);
+    const component = modalRef.componentInstance as CategoryEditComponent;
+    component.title = category.title;
+    component.description = category.description;
+    component.id = category.id;
     modalRef.result.finally(() => {
       this.getAllCategories();
     });

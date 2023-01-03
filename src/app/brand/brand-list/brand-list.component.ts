@@ -5,15 +5,12 @@ import { BrandService } from '../brand.service';
 @Component({
   selector: 'app-brand-list',
   templateUrl: './brand-list.component.html',
-  styleUrls: ['./brand-list.component.css']
+  styleUrls: ['./brand-list.component.css'],
 })
 export class BrandListComponent {
   brands = [];
 
-  constructor(
-    private service: BrandService,
-    private toastr: ToastrService
-  ) {}
+  constructor(private service: BrandService, private toastr: ToastrService) {}
 
   ngOnInit() {
     this.getAllBrands();

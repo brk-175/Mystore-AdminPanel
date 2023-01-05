@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import { BrandEditComponent } from './brand/brand-edit/brand-edit.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { BrandEditComponent } from './brand/brand-edit/brand-edit.component';
     UserListComponent,
     CategoryEditComponent,
     BrandEditComponent,
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,

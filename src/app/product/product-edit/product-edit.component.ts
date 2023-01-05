@@ -6,11 +6,12 @@ import { CategoryService } from 'src/app/category/category.service';
 import { ProductService } from '../product.service';
 
 @Component({
-  selector: 'app-product-add',
-  templateUrl: './product-add.component.html',
-  styleUrls: ['./product-add.component.css'],
+  selector: 'app-product-edit',
+  templateUrl: './product-edit.component.html',
+  styleUrls: ['./product-edit.component.css'],
 })
-export class ProductAddComponent {
+export class ProductEditComponent {
+  id: number = 0;
   title: string = '';
   description: string = '';
   price: string = '';
@@ -51,7 +52,7 @@ export class ProductAddComponent {
     this.image = event.target.files[0];
   }
 
-  onAdd() {
+  onEdit() {
     if (this.title.length == 0) this.toastr.warning('Please add title !');
     else if (this.description.length == 0)
       this.toastr.warning('Please add description !');
@@ -60,7 +61,8 @@ export class ProductAddComponent {
       this.toastr.warning('Please select image !');
     else {
       this.service
-        .addProduct(
+        .editProduct(
+          this.id,
           this.title,
           this.description,
           this.price,
@@ -71,7 +73,7 @@ export class ProductAddComponent {
         .subscribe((response: any) => {
           if (response.status == 'success') {
             this.modal.dismiss('success');
-            this.toastr.success('Product added successfully !');
+            this.toastr.success('Product edited successfully !');
           } else {
             this.toastr.error(response.error);
             this.modal.dismiss('error');

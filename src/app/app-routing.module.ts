@@ -11,6 +11,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'product-list', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: 'product-list',

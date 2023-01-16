@@ -29,7 +29,8 @@ export class UserListComponent {
       .subscribe((response: any) => {
         if (response.status == 'success') {
           this.getAllUsers();
-          this.toastr.success('Account suspended !');
+          if (user.status == 1) this.toastr.success('Account suspended !');
+          else this.toastr.success('Account Activated !');
         } else {
           this.toastr.error(response.error);
         }

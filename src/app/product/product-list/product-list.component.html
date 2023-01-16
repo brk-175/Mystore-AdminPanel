@@ -22,12 +22,14 @@
           />
         </td>
         <td>{{ product["title"] }}</td>
-        <td>{{ product["brandId"] }}</td>
-        <td>{{ product["categoryId"] }}</td>
+        <td>{{ product["brandTitle"] }}</td>
+        <td>{{ product["categoryTitle"] }}</td>
         <td>{{ product["price"] }}</td>
         <td>{{ product["description"] }}</td>
         <td>
-          <button (click)="onEdit(product)" class="btn btn-sm btn-warning">Edit</button>
+          <button (click)="onEdit(product)" class="btn btn-sm btn-warning">
+            Edit
+          </button>
           <button
             (click)="onDelete(product['id'])"
             class="btn btn-sm btn-danger delete"

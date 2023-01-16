@@ -6,12 +6,13 @@ import { BrandAddComponent } from './brand/brand-add/brand-add.component';
 import { BrandListComponent } from './brand/brand-list/brand-list.component';
 import { CategoryAddComponent } from './category/category-add/category-add.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
+import { OrderListComponent } from './order/order-list/order-list.component';
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'product-list', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: 'product-list',
@@ -46,6 +47,11 @@ const routes: Routes = [
   {
     path: 'user-list',
     component: UserListComponent,
+    canActivate: [AdminService],
+  },
+  {
+    path: 'order-list',
+    component: OrderListComponent,
     canActivate: [AdminService],
   },
 ];

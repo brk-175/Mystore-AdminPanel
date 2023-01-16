@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import { BrandEditComponent } from './brand/brand-edit/brand-edit.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { OrderListComponent } from './order/order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
     CategoryEditComponent,
     BrandEditComponent,
     ProductEditComponent,
+    OrderListComponent,
   ],
   imports: [
     BrowserModule,

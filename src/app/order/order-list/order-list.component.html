@@ -39,6 +39,7 @@
           <button class="btn btn-sm btn-info details">Details</button>
           <div ngbDropdown class="d-inline-block">
             <button
+              *ngIf="order['orderStatus'] != 6"
               type="button"
               class="btn btn-outline-info text-bg-dark update"
               id="dropdownBasic1"

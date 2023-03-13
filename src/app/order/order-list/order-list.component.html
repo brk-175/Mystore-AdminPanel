@@ -36,7 +36,12 @@
           >
         </td>
         <td>
-          <button class="btn btn-sm btn-info details">Details</button>
+          <button
+            (click)="getOrderPreviewDetails(order['id'])"
+            class="btn btn-sm btn-info details"
+          >
+            Details
+          </button>
           <div ngbDropdown class="d-inline-block">
             <button
               *ngIf="order['orderStatus'] != 6"

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { OrderDetailsComponent } from '../order-details/order-details.component';
 import { OrderService } from '../order.service';
 
 @Component({
@@ -9,8 +11,12 @@ import { OrderService } from '../order.service';
 })
 export class OrderListComponent {
   orders = [];
-
-  constructor(private service: OrderService, private toastr: ToastrService) {}
+  order_details = [];
+  constructor(
+    private service: OrderService,
+    private toastr: ToastrService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit() {
     this.getOrders();
@@ -36,5 +42,24 @@ export class OrderListComponent {
           this.toastr.success('Order Status Changed !');
         } else this.toastr.error(response.error);
       });
+  }
+
+  getOrderPreviewDetails(orderId: number) {
+    this.service.getOrderPreviewDetails(orderId).subscribe((response: any) => {
+      if (response.status == 'success') {
+        this.order_details = response.data;
+        this.showOrderDetails(this.order_details);
+      } else {
+        this.toastr.error(response.error);
+      }
+    });
+  }
+
+  showOrderDetails(order_details: any) {
+    const modalRef = this.modalService.open(OrderDetailsComponent, {
+      size: 'lg',
+    });
+    const component = modalRef.componentInstance as OrderDetailsComponent;
+    component.order_details = order_details;
   }
 }

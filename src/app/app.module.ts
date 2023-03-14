@@ -21,6 +21,7 @@ import { BrandEditComponent } from './brand/brand-edit/brand-edit.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { OrderDetailsComponent } from './order/order-details/order-details.component';
+import { SignupComponent } from './admin/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { OrderDetailsComponent } from './order/order-details/order-details.compo
     ProductEditComponent,
     OrderListComponent,
     OrderDetailsComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

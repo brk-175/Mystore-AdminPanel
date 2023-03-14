@@ -28,6 +28,23 @@ export class AdminService implements CanActivate {
     return this.http.post(this.url + '/login', body);
   }
 
+  onSignup(
+    firstName: string,
+    lastName: string,
+    phone: string,
+    email: string,
+    password: string
+  ) {
+    const body = {
+      firstName: firstName,
+      lastName: lastName,
+      phone: phone,
+      email: email,
+      password: password,
+    };
+    return this.http.post(this.url + '/signup', body);
+  }
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

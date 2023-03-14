@@ -36,4 +36,8 @@ export class LoginComponent {
         });
     }
   }
+
+  onSignup() {
+    this.router.navigate(['/signup']);
+  }
 }
